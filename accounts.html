@@ -170,20 +170,20 @@
         if(data==null){  data = getData(type);}
         //delete
         if(action=='delete'){
-           y=data.getElementsByTagName(type)[0];
+           y=data.getElementsByTagName("Transaction")[0];
            data.documentElement.removeChild(y);
         }
         if(action=='delete-all'){
-           y=data.getElementsByTagName(type)[0];
+           y=data.getElementsByTagName("Transaction")[0];
            data.documentElement.removeChild(y);
         }
         if(action=='edit'){
-           y=data.getElementsByTagName(type)[0];
+           y=data.getElementsByTagName("Transaction")[0];
            data.documentElement.removeChild(y);
         }
         if(action=='add'){
           // alert(y=data.getElementsByTagName(type).length)
-           y=data.getElementsByTagName(type)[0];
+           y=data.getElementsByTagName("Transaction")[0];
            data.documentElement.appendChild(y);
           // alert(y=data.getElementsByTagName(type).length)
 
