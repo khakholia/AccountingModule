@@ -19,14 +19,17 @@
         section>video{
             padding: 0 10rem;
         }
+       
     </style>
 </head>
 
 <body>
-    <header>
-        <h1 style="margin: 0; font-family: Impact;">CHRIST MALL</h1>
-        <p style="margin: 0;">Delhi | Mumbai | Bangalore | Guwahati</p>
-        <div class="topnav">
+    <header id="header" class="row w-100 m-0 p-2 bg-dark">
+        <div class="col">
+            <h1 style="margin: 0; font-family: Impact">CHRIST MALL</h1>
+            <p style="margin: 0">Delhi | Mumbai | Bangalore | Guwahati</p>
+        </div>
+        <div class="topnav col">
             <a href="#login">Login</a>
             <a  href="/AccountingModule/index.html">Home</a>
             <a class="active" href="/AccountingModule/about.html">About Us</a>
@@ -35,7 +38,7 @@
 
         </div>
     </header>
-    <section style="padding: 3rem 8rem 3rem 8rem;">
+    <section id="page" style="padding: 7rem 8rem 3rem 8rem;">
         <div class="">
             <h3>Who are we</h3>
             <p>We are a technology & innovation company. Delivering business software for Small and Medium Businesses
@@ -102,6 +105,15 @@
         <br /><a href="/AccountingModule/about.html">About Us</a></div>
 
     </footer>
+    <script>
+        document.getElementById("page").onwheel = function (event) {
+            if (event.deltaY >= 0) {
+                document.getElementById("header").style.display = "none";
+            } else {
+                document.getElementById("header").style.display = "flex";
+            }
+        };
+    </script>
 </body>
 
 </html>

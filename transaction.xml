@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="./accounts.xsl"?>
+<Accounts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:noNamespaceSchemaLocation="./accounts.xsd">
+
+   <Transaction>
+    <date>2022-01-05</date>
+    <type>Rent</type>
+    <particulars>Income</particulars>
+    <amount>20000</amount>
+    <description>Rent Paid by Shop A</description>
+    <status>Paid</status>
+   </Transaction>
+
+   <Transaction>
+    <date>2022-01-05</date>
+    <type>Parking</type>
+    <particulars>Income</particulars>
+    <amount>500</amount>
+    <description>Parking charged for vehiche KA01AA1234</description>
+    <status>Paid</status>
+   </Transaction>
+
+  <Transaction>
+    <date>2022-01-05</date>
+    <type>Maintenance</type>
+    <particulars>Expense</particulars>
+    <amount>1000</amount>
+    <description>Monthly Maintenance </description>
+    <status>Paid</status>
+   </Transaction>
+
+   <Transaction>
+    <date>2022-01-05</date>
+    <type>Electricity</type>
+    <particulars>Expense</particulars>
+    <amount>10000</amount>
+    <description>Electricity Pain for month January</description>
+    <status>Paid</status>
+   </Transaction>
+
+  <Transaction>
+    <date>2022-01-05</date>
+    <type>Petty</type>
+    <particulars>Expense</particulars>
+    <amount>1500</amount>
+    <description>Tea Coffee Expense of managers</description>
+    <status>Paid</status>
+   </Transaction>
+
+  <Transaction>
+    <date>2022-01-05</date>
+    <type>House Keeping</type>
+    <particulars>Expense</particulars>
+    <amount>1200</amount>
+    <description>Regular house Keeping Expense</description>
+    <status>Paid</status>
+   </Transaction>
+
+   <Transaction>
+    <date>2022-01-05</date>
+    <type>Repairs</type>
+    <particulars>Expense</particulars>
+    <amount>500</amount>
+    <description>Electrical Repairs </description>
+    <status>Paid</status>
+   </Transaction>
+
+   <Transaction>
+    <date>2022-01-05</date>
+    <type>Parking</type>
+    <particulars>Income</particulars>
+    <amount>100</amount>
+    <description>Parking charged for vehiche KA01AB6429</description>
+    <status>Paid</status>
+   </Transaction>
+
+</Accounts>
