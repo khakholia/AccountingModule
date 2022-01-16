@@ -109,13 +109,19 @@
         <div class="col-2 p-2 border-right">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link" href="javascript:refreshData('Bills');">Bills</a>
+              <a class="nav-link" href="javascript:refreshData('Bills');"
+                >Bills</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="javascript:refreshData('Invoice');">Invoice</a>
+              <a class="nav-link" href="javascript:refreshData('Invoice');"
+                >Invoice</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="javascript:refreshData('Ledgers');">Ledgers</a>
+              <a class="nav-link" href="javascript:refreshData('Ledgers');"
+                >Ledgers</a
+              >
             </li>
             <li class="nav-item">
               <a
@@ -132,7 +138,6 @@
           </div>
           <div id="table-data"></div>
         </div>
-
       </div>
     </section>
 
@@ -156,8 +161,8 @@
         req.onreadystatechange = function () {
           if (req.readyState == 4 && req.status == 200) {
             //display
-            if(document.getElementById('table-data'))document.getElementById('table-data').classList.remove('d-none')
-
+            if (document.getElementById("table-data"))
+              document.getElementById("table-data").classList.remove("d-none");
           }
         };
         req.open("GET", "" + type + ".xml", false);
@@ -165,60 +170,92 @@
         return req.responseXML;
       }
       // global data
-      var data=null
+      var data = null;
 
-      // if data is not available or action = refresh then "getData" 
+      // if data is not available or action = refresh then "getData"
       // It is called from html button where type and action is passed
-      function refreshData(type,action) {
-        document.getElementById("table-data").innerHTML="<p>Loading...</p>"
+      function refreshData(type, action) {
+        document.getElementById("table-data").innerHTML = "<p>Loading...</p>";
 
         // check data available
-        if(data==null){  data = getData(type);}
+        if (data == null) {
+          data = getData(type);
+        }
 
         //delete if mode =delete
-        if(action=='delete'){
-           y=data.getElementsByTagName("Transaction")[0];
-           data.documentElement.removeChild(y);
+        if (action == "delete") {
+          y = data.getElementsByTagName("Transaction")[0];
+          data.documentElement.removeChild(y);
         }
-        if(action=='delete-all'){
-           y=data.getElementsByTagName("Transaction")[0];
-           data.documentElement.removeChild(y);
+        if (action == "delete-all") {
+          y = data.getElementsByTagName("Transaction")[0];
+          data.documentElement.removeChild(y);
         }
-        if(action=='edit'){
-           y=data.getElementsByTagName("Transaction")[0];
-           data.documentElement.removeChild(y);
+        if (action == "edit") {
+          y = data.getElementsByTagName("Transaction")[0];
+          data.documentElement.removeChild(y);
         }
-        if(action=='add'){
-          // alert(y=data.getElementsByTagName(type).length)
-           y=data.getElementsByTagName("Transaction")[0];
-           data.documentElement.appendChild(y);
-          // alert(y=data.getElementsByTagName(type).length)
+        if (action == "add") {
+            a = prompt("Enter Date");
+            b = prompt("Enter Type");
+            c = prompt("Enter Particulars");
+            d = prompt("Enter Amount");
+            e = prompt("Enter Description");
+            f = prompt("Enter Status");
 
+            var details = [];
+            // var x = document.getElementById("addRecordForm")
+            Transaction = data.createElement("Transaction");
+            details[0] = data.createElement("date");
+            details[0].appendChild(data.createTextNode(a));
+            Transaction.appendChild(details[0]);
+            details[1] = data.createElement("type");
+            details[1].appendChild(data.createTextNode(b));
+            Transaction.appendChild(details[1]);
+            details[2] = data.createElement("particulars");
+            details[2].appendChild(data.createTextNode(c));
+            Transaction.appendChild(details[2]);
+            details[3] = data.createElement("amount");
+            details[3].appendChild(data.createTextNode(d));
+            Transaction.appendChild(details[3]);
+            details[4] = data.createElement("description");
+            details[4].appendChild(data.createTextNode(e));
+            Transaction.appendChild(details[4]);
+            details[5] = data.createElement("status");
+            details[5].appendChild(data.createTextNode(f));
+            Transaction.appendChild(details[5]);
+
+            data.documentElement.appendChild(Transaction);
+          
+          // alert(y=data.getElementsByTagName(type).length)
+          // y = data.getElementsByTagName("Transaction")[0];
+          // data.documentElement.appendChild(y);
+          // alert(y=data.getElementsByTagName(type).length)
         }
-        if(action=='refresh'){
-           data=getData(type)
+        if (action == "refresh") {
+          data = getData(type);
         }
         // send the data to display in html
-        displayData(data, type)
+        displayData(data, type);
       }
-      function displayData(data,type){
+      function displayData(data, type) {
         document.getElementById("welcome").classList.add("d-none");
 
         var tableData = "";
         if (type === "transaction") {
           tableData +=
             '<div id="table-controls" class="row m-2 justify-content-end">' +
-            '<div class="btn p-2" onclick=\"refreshData(\'transaction\',\'add\')\"">' +
+            '<div class="btn p-2" onclick="refreshData(\'transaction\',\'add\')"">' +
             '<img class="h-50" src="https://img.icons8.com/android/24/000000/plus.png"/>' +
             "</div>" +
             '<div class="btn p-2">' +
-            '<img class="h-50" onclick=\"refreshData(\'transaction\',\'edit\')\" src="https://img.icons8.com/ios-glyphs/30/000000/pencil--v1.png"/>' +
+            '<img class="h-50" onclick="refreshData(\'transaction\',\'edit\')" src="https://img.icons8.com/ios-glyphs/30/000000/pencil--v1.png"/>' +
             "</div>" +
             '<div class="btn p-2">' +
-            '<img class="h-50" onclick=\"refreshData(\'transaction\',\'delete\')\" src="https://img.icons8.com/ios-glyphs/30/000000/filled-trash.png"/>' +
+            '<img class="h-50" onclick="refreshData(\'transaction\',\'delete\')" src="https://img.icons8.com/ios-glyphs/30/000000/filled-trash.png"/>' +
             "</div>" +
             '<div class="btn p-2">' +
-            '<img class="h-50" onclick=\"refreshData(\'transaction\',\'refresh\')\" src="https://img.icons8.com/ios-filled/50/000000/refresh--v2.png"/>' +
+            '<img class="h-50" onclick="refreshData(\'transaction\',\'refresh\')" src="https://img.icons8.com/ios-filled/50/000000/refresh--v2.png"/>' +
             "</div>" +
             "<table class='table'>" +
             "<thead> <tr>" +
@@ -277,12 +314,12 @@
     </script>
     <script>
       document.getElementById("page").onwheel = function (event) {
-          if (event.deltaY >= 0) {
-              document.getElementById("header").style.display = "none";
-          } else {
-              document.getElementById("header").style.display = "flex";
-          }
+        if (event.deltaY >= 0) {
+          document.getElementById("header").style.display = "none";
+        } else {
+          document.getElementById("header").style.display = "flex";
+        }
       };
-  </script>
+    </script>
   </body>
 </html>
