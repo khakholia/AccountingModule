@@ -164,11 +164,18 @@
         req.send();
         return req.responseXML;
       }
+      // global data
       var data=null
+
+      // if data is not available or action = refresh then "getData" 
+      // It is called from html button where type and action is passed
       function refreshData(type,action) {
         document.getElementById("table-data").innerHTML="<p>Loading...</p>"
+
+        // check data available
         if(data==null){  data = getData(type);}
-        //delete
+
+        //delete if mode =delete
         if(action=='delete'){
            y=data.getElementsByTagName("Transaction")[0];
            data.documentElement.removeChild(y);
@@ -191,7 +198,7 @@
         if(action=='refresh'){
            data=getData(type)
         }
-          
+        // send the data to display in html
         displayData(data, type)
       }
       function displayData(data,type){
