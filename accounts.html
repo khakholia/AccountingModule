@@ -187,46 +187,65 @@
           y = data.getElementsByTagName("Transaction")[0];
           data.documentElement.removeChild(y);
         }
-        if (action == "delete-all") {
-          y = data.getElementsByTagName("Transaction")[0];
-          data.documentElement.removeChild(y);
-        }
         if (action == "edit") {
-          y = data.getElementsByTagName("Transaction")[0];
-          data.documentElement.removeChild(y);
+          i = parseInt(prompt("Enter index to change")) - 1;
+          a = prompt("Enter Date");
+          b = prompt("Enter Type");
+          c = prompt("Enter Particulars");
+          d = prompt("Enter Amount");
+          e = prompt("Enter Description");
+          f = prompt("Enter Status");
+          data
+            .getElementsByTagName("Transaction")
+            [i].getElementsByTagName("date")[0].firstChild.nodeValue = a;
+            data
+            .getElementsByTagName("Transaction")
+            [i].getElementsByTagName("type")[0].firstChild.nodeValue = b;
+            data
+            .getElementsByTagName("Transaction")
+            [i].getElementsByTagName("particulars")[0].firstChild.nodeValue = c;
+            data
+            .getElementsByTagName("Transaction")
+            [i].getElementsByTagName("amount")[0].firstChild.nodeValue = d;
+            data
+            .getElementsByTagName("Transaction")
+            [i].getElementsByTagName("description")[0].firstChild.nodeValue = e;
+            data
+            .getElementsByTagName("Transaction")
+            [i].getElementsByTagName("status")[0].firstChild.nodeValue = f;
         }
         if (action == "add") {
-            a = prompt("Enter Date");
-            b = prompt("Enter Type");
-            c = prompt("Enter Particulars");
-            d = prompt("Enter Amount");
-            e = prompt("Enter Description");
-            f = prompt("Enter Status");
+          a = prompt("Enter Date");
+          b = prompt("Enter Type");
+          c = prompt("Enter Particulars");
+          d = prompt("Enter Amount");
+          e = prompt("Enter Description");
+          f = prompt("Enter Status");
 
-            var details = [];
-            // var x = document.getElementById("addRecordForm")
-            Transaction = data.createElement("Transaction");
-            details[0] = data.createElement("date");
-            details[0].appendChild(data.createTextNode(a));
-            Transaction.appendChild(details[0]);
-            details[1] = data.createElement("type");
-            details[1].appendChild(data.createTextNode(b));
-            Transaction.appendChild(details[1]);
-            details[2] = data.createElement("particulars");
-            details[2].appendChild(data.createTextNode(c));
-            Transaction.appendChild(details[2]);
-            details[3] = data.createElement("amount");
-            details[3].appendChild(data.createTextNode(d));
-            Transaction.appendChild(details[3]);
-            details[4] = data.createElement("description");
-            details[4].appendChild(data.createTextNode(e));
-            Transaction.appendChild(details[4]);
-            details[5] = data.createElement("status");
-            details[5].appendChild(data.createTextNode(f));
-            Transaction.appendChild(details[5]);
+          var details = [];
 
-            data.documentElement.appendChild(Transaction);
-          
+          Transaction = data.createElement("Transaction");
+          details[0] = data.createElement("date");
+          details[0].appendChild(data.createTextNode(a));
+          Transaction.appendChild(details[0]);
+          details[1] = data.createElement("type");
+          details[1].appendChild(data.createTextNode(b));
+          Transaction.appendChild(details[1]);
+          details[2] = data.createElement("particulars");
+          details[2].appendChild(data.createTextNode(c));
+          Transaction.appendChild(details[2]);
+          details[3] = data.createElement("amount");
+          details[3].appendChild(data.createTextNode(d));
+          Transaction.appendChild(details[3]);
+          details[4] = data.createElement("description");
+          details[4].appendChild(data.createTextNode(e));
+          Transaction.appendChild(details[4]);
+          details[5] = data.createElement("status");
+          details[5].appendChild(data.createTextNode(f));
+          Transaction.appendChild(details[5]);
+
+          data.documentElement.appendChild(Transaction);
+
           // alert(y=data.getElementsByTagName(type).length)
           // y = data.getElementsByTagName("Transaction")[0];
           // data.documentElement.appendChild(y);
