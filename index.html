@@ -280,12 +280,12 @@
             var pass = document.getElementById('password')
             //validate
             if (
-                !fname ||
-                !lname ||
-                !dob ||
-                !email ||
-                !mobile ||
-                !pass
+                !fname.value ||
+                !lname.value ||
+                !dob.value ||
+                !email.value ||
+                !mobile.value ||
+                !pass.value
             ) {
                 alert("All Fields are mandatory except \"Referal\"")
                 return
