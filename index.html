@@ -100,6 +100,27 @@
 
 
     </section>
+    <section id="location" class="pt-4">
+        
+        <h3 class="display-2 mt-4">Actions</h3>
+        <div class="row m-0 p-0 justify-content-center align-items-center">
+            <div class="col-sm col-md col-lg">
+                <div class="btn btn-secondary" onclick="javascript:changeCookies()">Change Cookies</div>
+            </div>
+            <div class="col-sm col-md col-lg">
+                <div class="btn btn-secondary" onclick="javascript:deleteCookies()">Delete Cookies</div>
+            </div>
+            <div class="col-sm col-md col-lg">
+                <div class="btn btn-secondary" onclick="javascript:editLS()">Edit Local Storage</div>
+            </div>
+            <div class="col-sm col-md col-lg">
+                <div class="btn btn-secondary" onclick="javascript:deleteLS()">Delete Local Storage</div>
+            </div>
+        </div>
+
+
+
+    </section>
     <section class="container">
         <h3 style="text-align: center; padding: 1rem 0 0 0">Stores</h3>
         <div class="row m-0 p-0 justify-content-center align-items-center">
@@ -188,7 +209,8 @@
 
                 <div class="modal-body">
                     <h3 class="modal-title">Sign Up</h3>
-                    <p>Register yourself now to get notified for the <strong>#kadakdeals</strong>, free passes and exclusive deals.</p>
+                    <p>Register yourself now to get notified for the <strong>#kadakdeals</strong>, free passes and
+                        exclusive deals.</p>
 
                     <form action="/#">
                         <div class="row">
@@ -259,17 +281,17 @@
         var pass = document.getElementById('password')
 
         mobile.oninput = function () {
-            if(mobile.value.length>10) mobile.value=mobile.value.slice(0,10)
+            if (mobile.value.length > 10) mobile.value = mobile.value.slice(0, 10)
             var regex = /[^0-9]/gi;
             mobile.value = mobile.value.replace(regex, "");
         }
 
-        fname.oninput=lname.oninput= function () {
+        fname.oninput = lname.oninput = function () {
             var regex = /[^a-z]/gi;
             fname.value = fname.value.replace(regex, "");
             lname.value = lname.value.replace(regex, "");
         }
-        
+
         function signUpProcess() {
             var fname = document.getElementById('fname')
             var lname = document.getElementById('lname')
@@ -329,6 +351,52 @@
         }
     </script>
     <script>
+        //expiring cookie after 10 secs
+        document.cookie = "expires=" + new Date(Date.now() + 10000).toUTCString()
+
+        if (document.cookie.split(";").find(x => x.split("=")[0].trim() == 'name')==undefined ||document.cookie.split(";").find(x => x.split("=")[0].trim() == 'name').split("=")[1]=="") {
+            document.cookie = "name=" + prompt("Enter Your name")
+        } else {
+            alert("Hii, " + document.cookie.split(";").find(x => x.split("=")[0].trim() === 'name').split('=')[1])
+        }
+        if (document.cookie.split(";").find(x => x.split("=")[0].trim() == 'url')==undefined || document.cookie.split(";").find(x => x.split("=")[0].trim() == 'url').split("=")[1]=="") {
+            document.cookie = "url=" + prompt("Enter Image Url")
+        } else {
+            document.getElementById("section-1").style.backgroundImage="url('"+document.cookie.split(";").find(x => x.split("=")[0].trim() === 'url').split('=')[1]+"')"
+        }
+        if (document.cookie.split(";").find(x => x.split("=")[0].trim() == 'favouriteColor')==undefined || document.cookie.split(";").find(x => x.split("=")[0].trim() == 'favouriteColor').split("=")[1]=="") {
+            document.cookie = "favouriteColor=" + prompt("Enter a Color")
+        } else {
+            document.getElementById("header").style.backgroundColor=""+document.cookie.split(";").find(x => x.split("=")[0].trim() === 'favouriteColor').split('=')[1]
+        }
+        function changeCookies(){
+            console.log(11);
+            document.cookie = "name=" + prompt("Enter Your name")
+            document.cookie = "url=" + prompt("Enter Image Url")
+            document.cookie = "favouriteColor=" + prompt("Enter a Color")
+            if(confirm("Reload!!")) window.location.reload()
+        }
+        function deleteCookies() {
+            document.cookie = "name=" + ";"
+            document.cookie = "url=" + ";"
+            document.cookie = "favouriteColor=" + ";"
+            if(confirm("Reload!!")) window.location.reload()
+        }
+        
+        if(localStorage.getItem('data')){
+            var data=alert("LC Data:"+localStorage.getItem('data'))
+        }else{
+            localStorage.setItem("data",JSON.stringify({name: prompt("Name: "), age: prompt("Age: ")}))
+        }
+
+        function editLS() {
+            localStorage.setItem("data",JSON.stringify({name: prompt("Name: "), age: prompt("Age: ")}))
+        }
+        function deleteLS() {
+            localStorage.removeItem("data")
+        }
+    </script>
+    <script>
         document.getElementById("section-1").onwheel = function (event) {
             if (event.deltaY >= 0) {
                 document.getElementById("header").style.display = "none";
@@ -337,5 +405,7 @@
             }
         };
     </script>
+
 </body>
+
 </html>
