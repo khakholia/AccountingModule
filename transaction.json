@@ -1,0 +1,12 @@
+{"data":[
+    {"id":1, "date":"2022-01-01", "type":"Sale","particulars":"Goods Sold", "amount":"1000"},
+    {"id":2, "date":"2022-01-02", "type":"Sale","particulars":"Goods Sold", "amount":"1988"},
+    {"id":3, "date":"2022-01-03", "type":"Purshase","particulars":"Goods Purchased", "amount":"3000"},
+    {"id":4, "date":"2022-01-04", "type":"Purshase","particulars":"Goods Purchased", "amount":"100000"},
+    {"id":5, "date":"2022-01-05", "type":"Purshase","particulars":"Goods Purchased", "amount":"20000"},
+    {"id":6, "date":"2022-01-06", "type":"Purshase","particulars":"Goods Purchased", "amount":"4000"},
+    {"id":7, "date":"2022-01-07", "type":"Sale","particulars":"Goods Sold", "amount":"90000"},
+    {"id":8, "date":"2022-01-08", "type":"Sale","particulars":"Goods Sold", "amount":"7500"},
+    {"id":9, "date":"2022-01-09", "type":"Sale","particulars":"Goods Sold", "amount":"3000"},
+    {"id":10, "date":"2022-01-10", "type":"Sale","particulars":"Goods Sold", "amount":"1000"}
+]}
